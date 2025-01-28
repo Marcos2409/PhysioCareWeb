@@ -1,0 +1,21 @@
+{% extends "base.njk" %}
+{% block titulo %}Physio | Details{% endblock %}
+{% block contenido %}
+    <h1>Physio details</h1>
+    <p>
+        <strong>Name:</strong>
+        {{ physio.name }}</p>
+    <p>
+        <strong>Surname:</strong>
+        {{ physio.surname }}</p>
+    <p>
+        <strong>Specialty:</strong>
+        {{ physio.specialty }}</p>
+    <p>
+        <strong>License number:</strong>
+        {{ physio.licenseNumber }}</p>
+    
+    <p>
+        <a href="/physios" class="btn btn-success">Volver</a>
+    </p>
+{% endblock %}

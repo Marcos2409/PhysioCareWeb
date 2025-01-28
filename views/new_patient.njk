@@ -1,0 +1,53 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Patients | New{% endblock %}
+
+{% block contenido %}
+
+    <h1 class="text-center">Insert new patient</h1>
+
+    <div class="d-flex justify-content-center">
+        <form action="/patients" method="POST" enctype="multipart/form-data" style="max-width: 300px; width: 100%;">
+            <div class="form-group">
+                <label>Name:
+                    <input type="text" class="form-control" name="name" id="name"
+                    placeholder="Patient's name...">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Surname:
+                    <input type="text" class="form-control" name="surname" id="surname"
+                    placeholder="Patient's surname...">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Birth date:
+                    <input type="date" class="form-control" name="birthDate" id="birthDate"
+                    placeholder="Patient's birth date...">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Address: 
+                    <input type="text" class="form-control" name="address" id="address"
+                    placeholder="Patient's address">
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Insurance number: 
+                    <input type="text" class="form-control" name="insuranceNumber" id="insuranceNumber"
+                    placeholder="Patient's insurance number">
+                </label>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">
+                    Enviar
+                </button>
+                <a href="/patients" class="btn btn-secondary">
+                    Volver
+                </a>
+            </div>
+            
+        </form>
+    </div>
+
+{% endblock %}

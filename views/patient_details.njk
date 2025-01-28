@@ -1,0 +1,23 @@
+{% extends "base.njk" %}
+{% block titulo %}Patient | Details{% endblock %}
+{% block contenido %}
+    <h1>Patient details</h1>
+    <p>
+        <strong>Name:</strong>
+        {{ patient.name }}</p>
+    <p>
+        <strong>Surname:</strong>
+        {{ patient.surname }}</p>
+    <p>
+        <strong>Birthdate:</strong>
+        {{ patient.birthDate }}</p>
+    <p>
+        <strong>Address:</strong>
+        {{ patient.address }}</p>
+    <p>
+        <strong>Insurance number:</strong>
+        {{ patient.insuranceNumber }}</p>
+    <p>
+        <a href="/patients" class="btn btn-success">Volver</a>
+    </p>
+{% endblock %}

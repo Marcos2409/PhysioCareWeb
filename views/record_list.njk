@@ -1,0 +1,22 @@
+{% extends "base.njk" %}
+{% block titulo %}Record | List{% endblock %}
+{% block contenido %}
+    <h1 class="text-center my-4 display-4 text-primary">Record list</h1>
+    <ul class="list-group">
+        {% for record in records %}
+            <li class="list-group-item d-flex {% if loop.index % 2 == 0 %}list-group-item-secondary{% endif %}">
+                <span class="fw-bold text-secondary">{{ record.patient.name }} {{ record.patient.surname }}</span>
+                <div class="ms-auto d-flex gap-2">
+                    <a href="/records/{{ record.id }}" class="btn btn-success hover-invert">View details</a>
+                    <a href="/recprds/appointment/{{ record.id }}" class="btn btn-primary hover-invert">Add appointment</a>
+                    <form action="/records/{{ record.id }}" method="post" class="d-inline">
+                        <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-danger hover-invert">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            {% else %}
+                <li class="list-group-item">No physios to show</li>
+            {% endfor %}
+        </ul>
+    {% endblock %}

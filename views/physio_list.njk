@@ -1,0 +1,23 @@
+{% extends "base.njk" %}
+{% block titulo %}Physios | List{% endblock %}
+{% block contenido %}
+<h1 class="text-center my-4 display-4 text-primary">Physios list</h1>
+
+<ul class="list-group">
+    {% for physio in physios %}
+        <li class="list-group-item d-flex {% if loop.index % 2 == 0 %}list-group-item-secondary{% endif %}">
+            <span class="fw-bold text-secondary">{{ physio.name }}</span>
+            <div class="ms-auto d-flex gap-2">
+                <a href="/physios/{{ physio.id }}" class="btn btn-success hover-invert">See data</a>
+                <a href="/physios/edit/{{ physio.id }}" class="btn btn-primary hover-invert">Edit physio</a>
+                <form action="/physios/{{ physio.id }}" method="post" class="d-inline">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-danger hover-invert">Delete</button>
+                </form>
+            </div>
+        </li>
+    {% else %}
+        <li class="list-group-item">No physios to show</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.njk" %}
+{% block titulo %}Physio | Edit{% endblock %}
+{% block contenido %}
+    <h1>Physio data edit</h1>
+    <form action="/physios/{{ physio.id }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name:
+                <input type="text" class="form-control" name="name" placeholder="Physio's name..." value="{{ physio.name }}"></label>
+            </div>
+            <div class="form-group">
+                <label>Surname:
+                    <input type="text" class="form-control" name="surname" placeholder="Physio's surname..." value="{{ physio.surname }}"></label>
+                </div>
+                <div class="form-group">
+                    <label>Specialty:
+                        <input type="text" class="form-control" name="specialty" placeholder="Physio's specialty" value="{{ physio.specialty }}"></label>
+                    </div>
+                    
+                        <div class="form-group">
+                            <label>License number:
+                                <input type="text" class="form-control" name="licenseNumber" placeholder="Physio's license number" value="{{ physio.licenseNumber }}"></label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Enviar
+                            </button>
+                        </form>
+                    {% endblock %}

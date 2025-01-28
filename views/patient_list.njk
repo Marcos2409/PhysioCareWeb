@@ -1,0 +1,23 @@
+{% extends "base.njk" %}
+{% block titulo %}Patients | List{% endblock %}
+{% block contenido %}
+<h1 class="text-center my-4 display-4 text-primary">Patients list</h1>
+
+<ul class="list-group">
+    {% for patient in patients %}
+        <li class="list-group-item d-flex {% if loop.index % 2 == 0 %}list-group-item-secondary{% endif %}">
+            <span class="fw-bold text-secondary">{{ patient.name }}</span>
+            <div class="ms-auto d-flex gap-2">
+                <a href="/patients/{{ patient.id }}" class="btn btn-success hover-invert">See data</a>
+                <a href="/patients/edit/{{ patient.id }}" class="btn btn-primary hover-invert">Edit patient</a>
+                <form action="/patients/{{ patient.id }}" method="post" class="d-inline">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-danger hover-invert">Delete</button>
+                </form>
+            </div>
+        </li>
+    {% else %}
+        <li class="list-group-item">No patients to show</li>
+    {% endfor %}
+</ul>
+{% endblock %}
