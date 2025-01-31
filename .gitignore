@@ -1,3 +1,8 @@
 node_modules/
 .env
 .vscode/
+
+*.png
+*.jpg
+*.jpeg
+*.webp

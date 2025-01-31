@@ -1,0 +1,57 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Medical Record | Details{% endblock %}
+
+{% block contenido %}
+  <h1>Medical Record Details</h1>
+
+  <div class="d-flex flex-column">
+    <div class="mr-4 mb-4">
+      <h2>Patient Information</h2>
+      <p><strong>Name:</strong> {{ record.patient.name }} {{ record.patient.surname }}</p>
+      <p><strong>Date of Birth:</strong> {{ record.patient.birthDate | formatDate }}</p>
+      <p><strong>Address:</strong> {{ record.patient.address }}</p>
+      
+      <h2>Medical Record</h2>
+      <p>{{ record.medicalRecord }}</p>
+
+      <h2>Appointments</h2>
+      {% if record.appointments %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Physiotherapist</th>
+              <th>Diagnosis</th>
+              <th>Treatment</th>
+              <th>Observations</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in record.appointments %}
+              <tr>
+                <td>{{ appointment.date | formatDate }}</td>
+                <td>{{ appointment.physio.name }} {{ appointment.physio.surname }}</td>
+                <td>{{ appointment.diagnosis }}</td>
+                <td>{{ appointment.treatment }}</td>
+                <td>{{ appointment.observations }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No appointments recorded.</p>
+      {% endif %}
+      
+      <p><a href="{{ record.id }}/appointments/new" class="btn btn-primary">Add New Appointment</a></p>
+
+      <p><a href="/records" class="btn btn-success">Back to the list</a></p>
+    </div>
+
+    {% if record.patient.image %}
+      <div class="d-flex justify-content-center mb-4">
+        <img class="img-thumbnail img-fluid w-auto" style="max-width: 250px;" src="/public/uploads/{{ record.patient.image }}">
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

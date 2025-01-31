@@ -6,7 +6,7 @@
 <ul class="list-group">
     {% for patient in patients %}
         <li class="list-group-item d-flex {% if loop.index % 2 == 0 %}list-group-item-secondary{% endif %}">
-            <span class="fw-bold text-secondary">{{ patient.name }}</span>
+            <span class="fw-bold text-secondary">{{ patient.surname }}, {{ patient.name }}</span>
             <div class="ms-auto d-flex gap-2">
                 <a href="/patients/{{ patient.id }}" class="btn btn-success hover-invert">See data</a>
                 <a href="/patients/edit/{{ patient.id }}" class="btn btn-primary hover-invert">Edit patient</a>

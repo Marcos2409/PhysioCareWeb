@@ -1,30 +1,28 @@
 const mongoose = require('mongoose');
 
-
 let appointmentSchema = new mongoose.Schema({
     date: {
         type: Date,
-        required: true
+        required: [true, 'Date is required.']
     },
     physio: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Physio',
-        required: true
+        ref: 'physios',
+        required: [true, 'Physio is required.']
     },
     diagnosis: {
         type: String,
-        required: true,
-        minlength: 10,
-        maxlength: 500
+        required: [true, 'Diagnosis is required.'],
+        minlength: [10, 'Diagnosis must be at least 10 characters.'],
+        maxlength: [500, 'Diagnosis must not exceed 500 characters.']
     },
     treatment: {
         type: String,
-        required: true
+        required: [true, 'Treatment is required.']
     },
     observations: {
         type: String,
-        required: false,
-        maxlength: 500
+        maxlength: [500, 'Observations must not exceed 500 characters.']
     }
 });
 
@@ -32,15 +30,15 @@ let recordSchema = new mongoose.Schema({
     patient: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'patients',
-        required: true
+        required: [true, 'Patient is required.']
     },
     medicalRecord: {
         type: String,
-        required: false,    
-        maxlength: 1000
+        maxlength: [1000, 'Medical record must not exceed 1000 characters.']
     },
     appointments: [appointmentSchema]
 });
 
 let Record = mongoose.model('records', recordSchema);
+
 module.exports = Record;

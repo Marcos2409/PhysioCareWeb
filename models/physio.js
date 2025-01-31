@@ -1,36 +1,37 @@
 const mongoose = require('mongoose');
 
-// Definición del esquema de nuestra colección
 let physioSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
-        minlength: 2,
-        maxlength: 50
+        required: [true, 'Name is required.'],
+        minlength: [2, 'Name must be at least 2 characters long.'],
+        maxlength: [50, 'Name cannot exceed 50 characters.']
     },
     surname: {
         type: String,
-        required: true,
-        minlength: 2,
-        maxlength: 50
+        required: [true, 'Surname is required.'],
+        minlength: [2, 'Surname must be at least 2 characters long.'],
+        maxlength: [50, 'Surname cannot exceed 50 characters.']
     },
     specialty: {
         type: String,
-        required: true,
-        enum: ['Sports', 'Neurological', 'Pediatric', 'Geriatric', 'Oncological']
+        required: [true, 'Specialty is required.'],
+        enum: {
+            values: ['Sports', 'Neurological', 'Pediatric', 'Geriatric', 'Oncological'],
+            message: 'Specialty must be one of: Sports, Neurological, Pediatric, Geriatric, Oncological.'
+        }
     },
     licenseNumber: {
         type: String,
-        required: true,
-        match: /^[a-zA-Z0-9]{8}$/,
-        unique: true
+        required: [true, 'License number is required.'],
+        match: [/^[a-zA-Z]\d{7}$/, 'License number must be exactly 1 letter and 7 numeric characters.'],
+        unique: [true, 'License number must be unique.']
     },
     image: {
         type: String,
-        required: false,
+        required: false
     }
 });
 
-// Asociación con el modelo (colección contactos)
 let Physio = mongoose.model('physios', physioSchema);
 module.exports = Physio;

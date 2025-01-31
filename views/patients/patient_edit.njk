@@ -1,0 +1,34 @@
+{% extends "base.njk" %}
+{% block titulo %}Patient | Edit{% endblock %}
+{% block contenido %}
+    <h1>Patient data edit</h1>
+    <form action="/patients/{{ patient.id }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name:
+            <input type="text" class="form-control" name="name" placeholder="Patient's name..." value="{{ patient.name }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Surname:
+            <input type="text" class="form-control" name="surname" placeholder="Patient's surname..." value="{{ patient.surname }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Birth Date:
+            <input type="date" class="form-control" name="birthDate" placeholder="Patient's birth date" value="{{ patient.birthDate }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Address:
+            <input type="text" class="form-control" name="address" placeholder="Patient's address" value="{{ patient.address }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Insurance number:
+            <input type="text" class="form-control" name="insuranceNumber" placeholder="Patient's insurance number" value="{{ patient.insuranceNumber }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Patient's profile image:
+            <input type="file" class="form-control" name="image" placeholder="Patient's profile image" value="{{ patient.image }}"></label>
+        </div>
+        <button type="submit" class="btn btn-primary">
+                Enviar
+        </button>
+    </form>
+{% endblock %}

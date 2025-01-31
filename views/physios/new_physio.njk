@@ -1,0 +1,92 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Physios | New{% endblock %}
+
+{% block contenido %}
+    <h1 class="text-center">Insert new physio</h1>
+    <div class="d-flex justify-content-center">
+        <form action="/physios" method="POST" enctype="multipart/form-data" style="max-width: 300px; width: 100%;">
+            <!-- Login -->
+        <div class="form-group">
+            <label for="login">Login:</label>
+            <input 
+                type="text" 
+                class="form-control {% if errors.login %}is-invalid{% endif %}" 
+                id="login" 
+                name="login" 
+                value="{{ physio.login | default('') }}" 
+                placeholder="At least 4 characters" 
+                required>
+            {% if errors.login %}
+                <div class="invalid-feedback">{{ errors.login }}</div>
+            {% endif %}
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input 
+                type="password" 
+                class="form-control {% if errors.password %}is-invalid{% endif %}" 
+                id="password" 
+                name="password" 
+                placeholder="At least 7 characters" 
+                required>
+            {% if errors.password %}
+                <div class="invalid-feedback">{{ errors.password }}</div>
+            {% endif %}
+        </div>
+            
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Physio's name..." value="{{ physio.name  }}">
+                {% if errors.name %}
+                    <div class="text-danger">{{ errors.name }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" class="form-control" name="surname" id="surname" placeholder="Physio's surname..." value="{{ physio.surname }}">
+                {% if errors.surname %}
+                    <div class="text-danger">{{ errors.surname }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="specialty">Specialty:</label>
+                <select class="form-control" name="specialty" id="specialty" required>
+                    <option value="">Select specialty...</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Neurological">Neurological</option>
+                    <option value="Pediatric">Pediatric</option>
+                    <option value="Geriatric">Geriatric</option>
+                    <option value="Oncological">Oncological</option>
+                </select>
+                {% if errors.specialty %}
+                    <div class="text-danger">{{ errors.specialty }}</div>
+                {% endif %}
+            </div>  
+
+            <div class="form-group">
+                <label for="licenseNumber">License number:</label>
+                <input type="text" class="form-control" name="licenseNumber" id="licenseNumber" placeholder="Physio's license number" value="{{ physio.licenseNumber }}">
+                {% if errors.licenseNumber %}
+                    <div class="text-danger">{{ errors.licenseNumber }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="image">Profile image:</label>
+                <input type="file" class="form-control" name="image" id="image">
+                {% if errors.image %}
+                    <div class="text-danger">{{ errors.image }}</div>
+                {% endif %}
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <a href="/physios" class="btn btn-secondary">Volver</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

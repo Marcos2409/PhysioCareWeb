@@ -1,41 +1,172 @@
-Escala y sombra en hover
-.hover-effect:hover {
-    transform: scale(1.05);
-    transition: transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+body {
+    background-color: #eaf3f9d0; /* Azul claro con algo de opacidad */
 }
 
+/* Base Styles for Buttons */
 .btn-primary {
-    --hover-bg-color: #0d6efd; 
-    --hover-text-color: #ffffff; 
+    background-color: #a2c9f5; /* Azul pastel */
+    border-color: #91bced; /* Azul ligeramente más oscuro */
+    color: #4d5b6c; /* Gris azulado para contraste */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #91bced; /* Azul más intenso */
+    border-color: #7ca9e1;
+    color: #fff; /* Texto blanco en hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: #cbe4de; /* Verde menta claro */
+    border-color: #b6d8d1; /* Verde más oscuro */
+    color: #4d5b6c; /* Gris azulado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #b6d8d1; /* Verde más profundo */
+    border-color: #9fcfc5;
+    color: #fff; /* Blanco para contraste */
+}
+
+/* Other Button Colors */
 .btn-success {
-    --hover-bg-color: #198754; 
-    --hover-text-color: #ffffff; 
+    background-color: #a7e3c1; /* Verde pastel */
+    border-color: #93d6b1;
+    color: #4d5b6c;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background-color: #93d6b1; /* Verde más intenso */
+    border-color: #7fc6a0;
+    color: #fff; /* Blanco para hover */
 }
 
 .btn-danger {
-    --hover-bg-color: #dc3545; 
-    --hover-text-color: #ffffff; 
+    background-color: #f2a1a8; /* Rosa pastel frío */
+    border-color: #e49096;
+    color: #4d5b6c;
 }
 
-.hover-invert {
-    background-color: var(--hover-bg-color);
-    color: var(--hover-text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: #e49096; /* Rosa más oscuro */
+    border-color: #d17e85;
+    color: #fff;
 }
 
-.hover-invert:hover {
-    background-color: var(--hover-text-color); 
-    color: var(--hover-bg-color);
+.btn-warning {
+    background-color: #fbe4a7; /* Amarillo pastel frío */
+    border-color: #f4d693;
+    color: #4d5b6c;
 }
 
-h1 {
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-    color: #0d6efd; 
+.btn-warning:hover,
+.btn-warning:focus {
+    background-color: #f4d693; /* Amarillo más profundo */
+    border-color: #eccc7f;
+    color: #4d5b6c;
+}
+
+.btn-info {
+    background-color: #a7d8f0; /* Azul cielo */
+    border-color: #92cae8;
+    color: #4d5b6c;
+}
+
+.btn-info:hover,
+.btn-info:focus {
+    background-color: #92cae8; /* Azul más profundo */
+    border-color: #7fbde0;
+    color: #fff;
+}
+
+.btn-light {
+    background-color: #f5f9fa; /* Gris muy claro */
+    border-color: #d9e3e6;
+    color: #4d5b6c;
+}
+
+.btn-light:hover,
+.btn-light:focus {
+    background-color: #d9e3e6; /* Gris más intenso */
+    border-color: #c4d5db;
+    color: #4d5b6c;
+}
+
+.btn-dark {
+    background-color: #4d5b6c; /* Gris azulado oscuro */
+    border-color: #3e4b5a;
+    color: #fff;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+    background-color: #3e4b5a; /* Gris más oscuro */
+    border-color: #2f3c4b;
+    color: #fff;
+}
+
+/* Custom Dropdown Menu */
+.dropdown-menu {
+    background-color: #f5f9fa; /* Gris claro frío */
+    border-color: #d9e3e6; /* Gris suave */
+}
+
+.dropdown-item {
+    color: #4d5b6c; /* Gris azulado */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #eaf3f9; /* Azul muy claro */
+    color: #4d5b6c;
+}
+
+/* Alerts */
+.alert-primary {
+    background-color: #a2c9f5; /* Azul pastel */
+    color: #4d5b6c;
+}
+
+.alert-secondary {
+    background-color: #cbe4de; /* Verde pastel */
+    color: #4d5b6c;
+}
+
+/* Cards */
+.card {
+    background-color: #f5f9fa; /* Gris claro frío */
+    border: 1px solid #d9e3e6; /* Gris suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+    background-color: #a2c9f5; /* Azul pastel */
+    color: #4d5b6c;
+}
+
+.navbar a {
+    color: #4d5b6c;
+}
+
+.navbar a:hover {
+    color: #91bced; /* Azul más intenso */
+}
+
+/* Enable dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Ajustar si hay un espacio visual */
+}
+
+/* Align dropdown to the left */
+.dropdown-menu-left {
+    left: 0;
+    right: auto;
 }

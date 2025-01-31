@@ -1,0 +1,41 @@
+{% extends "base.njk" %}
+{% block titulo %}Patient | Details{% endblock %}
+{% block contenido %}
+    <h1>Patient details</h1>
+    <div class="d-flex">
+        <div class="mr-4">
+            <p>
+                <strong>Name:</strong>
+                {{ patient.name }}</p>
+            <p>
+                <strong>Surname:</strong>
+                {{ patient.surname }}</p>
+            <p>
+                <strong>Birthdate:</strong>
+                {{ patient.birthDate | formatDate }}</p>
+            <p>
+                <strong>Address:</strong>
+                {{ patient.address }}</p>
+            <p>
+                <strong>Insurance number:</strong>
+                {{ patient.insuranceNumber }}</p>
+            {% if user %}
+                <p>
+                    <strong>Login:</strong>
+                    {{ user.login }}
+                </p>
+            {% else %}
+                <p>
+                    <strong>Login:</strong>
+                    Not available</p>
+            {% endif %}
+            <p>
+                <a href="/patients" class="btn btn-success">Volver</a>
+            </p>
+        </div>
+        {% if patient.image %}
+            <div class="d-flex justify-content-center">
+                <img class="img-thumbnail img-fluid w-auto" style="max-width: 250px;" src="/public/uploads/{{ patient.image }}"></div>
+            {% endif %}
+        </div>
+    {% endblock %}
