@@ -1,0 +1,28 @@
+# Ignorar archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de dependencias y compilación
+node_modules/
+vendor/
+*.log
+
+# Ignorar archivos sensibles
+.env
+*.pem
+*.key
+*.crt
+
+# Ignorar archivos de control de versiones
+.git/
+.gitignore
+
+# Ignorar cachés y archivos temporales
+__pycache__/
+*.pyc
+*.pyo
+*.swp
+
+# Ignorar Docker archivos temporales
+Dockerfile~
+*.tar
