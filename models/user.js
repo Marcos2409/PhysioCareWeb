@@ -9,7 +9,7 @@ let userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password is required."],
-    minlength: [7, "Diagnosis must be at least 7 characters."],
+    minlength: [4, "Diagnosis must be at least 4 characters."],
   },
   rol: {
     type: String,

@@ -10,6 +10,7 @@ const Patient = require("./routes/patientRoutes");
 const Physio = require("./routes/physioRoutes");
 const Record = require("./routes/recordRoutes");
 const Auth = require("./routes/authRoutes");
+const User = require("./models/user");
 
 mongoose.connect(process.env.DATABASE_URL);
 
@@ -68,6 +69,28 @@ app.use("/patients", Patient);
 app.use("/physios", Physio);
 app.use("/records", Record);
 app.use("/auth", Auth);
+
+// await Patient.deleteMany({});
+// await Physio.deleteMany({});
+// await Record.deleteMany({});
+
+User.create([
+  {
+    login: "admin",
+    password: "admin",
+    rol: "admin",
+  },
+  {
+    login: "physio",
+    password: "physio",
+    rol: "physio",
+  },
+  {
+    login: "patient",
+    password: "patient",
+    rol: "patient",
+  },
+]);
 
 app.listen(process.env.PUERTO, () => {
   console.log(`Server listening in port ${process.env.PUERTO}`);
