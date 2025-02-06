@@ -1,5 +1,5 @@
 # Imagen de node
-FROM node:20.17.0
+FROM node:20.18.2
 
 # Generar el directorio "app" de forma recursiva
 RUN mkdir -p /usr/src/app
